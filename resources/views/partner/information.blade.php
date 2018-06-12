@@ -1,0 +1,53 @@
+@extends('layout.index')
+
+@section('content')
+<!-- Page Content -->
+<div class="container">
+
+<div class="space20"></div>
+
+<div class="row main-left">
+@include('layout.menu')
+<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+	<form action="" method="POST" role="form">
+		<legend>Thông tin cá nhân</legend>
+	
+		<div class="form-group">
+			<label for="">label</label>
+			<input type="text" class="form-control" id="" placeholder="Input field">
+		</div>
+		<div class="form-group">
+			<label for="">label</label>
+			<input type="text" class="form-control" id="" placeholder="Input field">
+		</div>
+		<div class="form-group">
+			<label for="">label</label>
+			<input type="text" class="form-control" id="" placeholder="Input field">
+		</div>
+		<div class="form-group">
+			<label for="">label</label>
+			<input type="text" class="form-control" id="" placeholder="Input field">
+		</div>
+		<div class="form-group">
+			<label for="">label</label>
+			<input type="text" class="form-control" id="" placeholder="Input field">
+		</div>
+		<div class="form-group">
+			<label for="">label</label>
+			<input type="text" class="form-control" id="" placeholder="Input field">
+		</div>
+		<div class="form-group">
+			<label for="">label</label>
+			<input type="text" class="form-control" id="" placeholder="Input field">
+		</div>
+		
+		
+	
+		<button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+</div>
+
+<!-- /.row -->
+</div>
+<!-- end Page Content -->
+@endsection

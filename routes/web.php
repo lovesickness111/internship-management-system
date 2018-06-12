@@ -62,4 +62,21 @@ Route::group(['prefix'=>'lecturer'],function(){
 	Route::get('view-post','lecturerController@getViewPost');
 	Route::post('post{id}','lecturerController@postViewPost');
 });
+Route::group(['prefix'=>'partner'],function(){
+	Route::get('infor','lecturerController@getInfor');
+	Route::get('student-list','partnerController@getStudentList');
+	Route::get('inbox','lecturerController@getInbox');
+	Route::get('write-message','lecturerController@getWriteMessage');
+	Route::post('write-message','lecturerController@postWriteMessage');
 
+	Route::get('view-report','lecturerController@getReport');
+	Route::post('view-report','lecturerController@postReport');
+	Route::get('infor','lecturerController@getInfor');
+	Route::get('view-feedback','lecturerController@getFeedback');
+	Route::get('change-password','lecturerController@getChangePassword');
+	Route::post('change-password','lecturerController@postChangePassword');
+	
+	
+	Route::get('view-post','lecturerController@getViewPost');
+	Route::post('post{id}','lecturerController@postViewPost');
+});

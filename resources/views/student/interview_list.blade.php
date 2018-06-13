@@ -19,10 +19,10 @@
                     </div>
                         <div>
                             <ul class="list-group">
-                                <li class="list-group-item">Giảng Viên</li>
-                                <li class="list-group-item">Loại thực tập</li>
-                                <li class="list-group-item">Nơi thực tập</li>
-                                 <li class="list-group-item">Điểm</li>
+                                <li class="list-group-item">Giảng Viên: <b>{{$student->lecturer->fullname}}</b></li>
+                                <li class="list-group-item">Loại thực tập:<b>{{$student->internship_type}}</b></li>
+                                <li class="list-group-item">Nơi thực tập:<b></b></li>
+                                 <li class="list-group-item">Điểm: <b></b></li>
                             </ul>
                         </div>
                         <h1 class="page-header">danh sách công ty bạn đã theo dõi
@@ -34,7 +34,7 @@
                         <thead>
                             <tr align="center">
                                 <th>Id</th>
-                                <th>Name</th>
+                                <th>Tên công ty</th>
                                 <th>Status</th>
                                 <th>Read</th>
                             </tr>
@@ -62,6 +62,7 @@
         <!-- /#page-wrapper -->
 </div>
 <!-- /.row -->
+</div>
 </div>
 <!-- end Page Content -->
 @endsection

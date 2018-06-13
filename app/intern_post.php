@@ -8,8 +8,10 @@ class intern_post extends Model
 {
     //
     protected $table = "intern_post";
-    public function student(){
-    	return $this->belongsTo('App/student','follower_id','id_student');
-   
+    public function follow(){
+    	return $this->hasMany('App\follow','post_id','id');
+    }
+    public function bpartner(){
+    	return $this->belongsTo('App\partner','partner_id','id');
     }
 }

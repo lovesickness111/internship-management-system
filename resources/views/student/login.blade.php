@@ -29,10 +29,16 @@
             <div class="col-md-5 col-lg-5">
                 <div class="login-panel panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Please Sign In</h3>
+                        <h3 class="panel-title">Sinh viên đăng nhập</h3>
                     </div>
+                    @if(session('thongbao'))
+                            <div class="alert alert-success">
+                                {{session('thongbao')}}
+                            </div>
+                    @endif
                     <div class="panel-body">
-                        <form role="form" action="" method="POST">
+                        <form  action="student/login" method="POST">
+                            <input type="hidden" name="_token" value="{{csrf_token()}}">
                             <fieldset>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>

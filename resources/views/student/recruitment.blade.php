@@ -14,8 +14,9 @@
                     <div class="panel-heading" style="background-color:#337AB7; color:white;">
                         <h4><b>Danh sách công ty đối tác của khoa</b></h4>
                     </div>
-
-                    <div class="row-item row">
+                    @foreach($intern_post as $post)
+                        
+                         <div class="row-item row">
                         <div class="col-md-3">
 
                             <a href="detail.html">
@@ -25,47 +26,15 @@
                         </div>
 
                         <div class="col-md-9">
-                            <h3>Project Five</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, quo, minima, inventore voluptatum saepe quos nostrum provident .</p>
-                            <a class="btn btn-primary" href="detail.html">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
+                            <h3>{{$post->bpartner->name}}</h3>
+                            <p>{{$post->description}}</p>
+                            <a class="btn btn-primary" href="student/view-post/{{$post->id}}}}">xem thêm <span class="glyphicon glyphicon-chevron-right"></span></a>
                         </div>
                         <div class="break"></div>
-                    </div>
-
-                    <div class="row-item row">
-                        <div class="col-md-3">
-
-                            <a href="detail.html">
-                                <br>
-                                <img width="200px" height="200px" class="img-responsive" src="image/320x150.png" alt="">
-                            </a>
                         </div>
-
-                        <div class="col-md-9">
-                            <h3>Project Five</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, quo, minima, inventore voluptatum saepe quos nostrum provident .</p>
-                            <a class="btn btn-primary" href="detail.html">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
-                        </div>
-                        <div class="break"></div>
-                    </div>
-
-                    <div class="row-item row">
-                        <div class="col-md-3">
-
-                            <a href="detail.html">
-                                <br>
-                                <img width="200px" height="200px" class="img-responsive" src="image/320x150.png" alt="">
-                            </a>
-                        </div>
-
-                        <div class="col-md-9">
-                            <h3>Project Five</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, quo, minima, inventore voluptatum saepe quos nostrum provident .</p>
-                            <a class="btn btn-primary" href="detail.html">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
-                        </div>
-                        <div class="break"></div>
-                    </div>
-
+                        
+                    @endforeach
+                    
                     <!-- Pagination -->
                     <div class="row text-center">
                         <div class="col-lg-12">

@@ -8,6 +8,8 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav pull-right">
+                    <?php $nguoidung = Auth::user(); ?>
+                    @if(!isset($nguoidung))
                     <li>
                         <a href="student/login">Sinh viên</a>
                     </li>
@@ -22,23 +24,19 @@
                     </li>
                 </ul>
 			    <ul class="nav navbar-nav pull-right">
-                    <?php $nguoidung = Auth::user(); ?>
-                    @if(!isset($nguoidung))
                         <li>
-                            <a href="dangky">Đăng ký</a>
+                            <a href="student/signin">Đăng ký</a>
                         </li>
-                        <li>
-                            <a href="dangnhap">Đăng nhập </a>
-                        </li>
+                        
                     @else 
                         <li>
-                        	<a href="nguoidung">
+                        	<a href="student/infor">
                         		<span class ="glyphicon glyphicon-user"></span>
                         		{{$nguoidung->name}}
                         	</a>
                         </li>
                         <li>
-                        	<a href="dangxuat">Đăng xuất</a>
+                        	<a href="student/logout">Đăng xuất</a>
                         </li>
                     @endif
                 </ul>

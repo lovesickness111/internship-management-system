@@ -29,7 +29,7 @@
             <div class="col-md-5 col-lg-5">
                 <div class="login-panel panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Please Sign In</h3>
+                        <h3 class="panel-title">Lecturer login</h3>
                     </div>
                     <div class="panel-body">
                         <form role="form" action="" method="POST">
@@ -55,8 +55,6 @@
                         <ul class="list-group">
                             <a href="https://drive.google.com/drive/folders/0B7AsBq-Fi9qXSGdHOURMRk1XVVk" target="_blank"><li class="list-group-item" >Mẫu báo cáo thực tập.</li></a>
                             <li class="list-group-item">Nếu có vấn đề, thắc mắc trong quá tình sử dụng hệ thống, liên hệ qua email: khoa.cntt.vnu@gmail.com. Lưu ý không dùng vnu để gửi mail</li>
-                            <li class="list-group-item">Các bạn sinh viên K58 đăng kí tài khoản theo email vnu ví dụ vupk_58@vnu.edu.vn
-email có số là của các bạn K59 trở về sau</li>
                         </ul>
                     </div>
                 </div>

@@ -9,18 +9,18 @@ class student extends Model
     //
     protected $table = "student";
     public function lecturer(){
-    	return $this->belongsTo('App/lecturer','lecturer_id','id_lecturer');
+    	return $this->belongsTo('App\lecturer','lecturer_id','id');
     }
     public function feedback(){
-    	return $this->hasMany('App/feedback','student_id','id_student');
+    	return $this->hasMany('App\feedback','student_id','id');
     }
     public function report(){
-    	return $this->hasMany('App/report','student_report','id_student');
+    	return $this->hasMany('App\report','student_report','id');
     }
-    public function intern_post(){
-    	return $this->hasMany('App/intern_post','follower_id','id_student');
+    public function follow(){
+    	return $this->hasOne('App\follow','student_id','id');
     }
     public function User(){
-    	return $this->belongsTo('App/User','account_id','id');
+    	return $this->belongsTo('App\User','account_id','id');
     }
 }

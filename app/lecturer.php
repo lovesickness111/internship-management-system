@@ -9,6 +9,6 @@ class lecturer extends Model
     //
     protected $table = "lecturer";
     public function student(){
-    	return $this->hasMany('App/student','lecturer_id','id_lecturer');
+    	return $this->hasMany('App\student','lecturer_id','id');
     }
 }

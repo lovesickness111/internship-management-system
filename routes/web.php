@@ -22,11 +22,17 @@ Route::get('gioithieu',function(){
 });
 Route::get('student/login','studentController@getLogin');
 Route::post('student/login','studentController@postLogin');
+Route::get('student/signin','studentController@getSignin');
+Route::post('student/signin','studentController@postSignin');
 Route::get('student/logout','studentController@getLogout');
 
 Route::group(['prefix'=>'student'],function(){
 	Route::get('recruitment','studentController@getRecruitment');
+	Route::get('view-post/{id}','studentController@getViewPost');
+	Route::get('follow/{id}','studentController@getFollowPost');
+
 	Route::get('interview-list','studentController@getInterview');
+
 	Route::get('request-form','studentController@getFormRequest');
 	Route::post('request-form','studentController@postFormRequest');
 	Route::get('infor','studentController@getInfor');
@@ -36,7 +42,7 @@ Route::group(['prefix'=>'student'],function(){
 	Route::get('inbox','studentController@getInbox');
 	Route::get('write-message','studentController@getWriteMessage');
 	Route::post('write-message','studentController@postWriteMessage');
-	Route::get('view-post','studentController@getViewPost');
+
 	Route::post('post{id}','studentController@postViewPost');
 });
 //lectuer 
@@ -62,4 +68,21 @@ Route::group(['prefix'=>'lecturer'],function(){
 	Route::get('view-post','lecturerController@getViewPost');
 	Route::post('post{id}','lecturerController@postViewPost');
 });
+Route::group(['prefix'=>'partner'],function(){
+	Route::get('infor','lecturerController@getInfor');
+	Route::get('student-list','partnerController@getStudentList');
+	Route::get('inbox','lecturerController@getInbox');
+	Route::get('write-message','lecturerController@getWriteMessage');
+	Route::post('write-message','lecturerController@postWriteMessage');
 
+	Route::get('view-report','lecturerController@getReport');
+	Route::post('view-report','lecturerController@postReport');
+	Route::get('infor','lecturerController@getInfor');
+	Route::get('view-feedback','lecturerController@getFeedback');
+	Route::get('change-password','lecturerController@getChangePassword');
+	Route::post('change-password','lecturerController@postChangePassword');
+	
+	
+	Route::get('view-post','lecturerController@getViewPost');
+	Route::post('post{id}','lecturerController@postViewPost');
+});

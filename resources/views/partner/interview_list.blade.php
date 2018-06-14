@@ -7,7 +7,7 @@
 <div class="space20"></div>
 
 <div class="row main-left">
-@include('layout.menu')
+@include('layout.menu2')
         <!-- Page Content -->
 <div class="col-md-9 ">
         <div id="page-wrapper">

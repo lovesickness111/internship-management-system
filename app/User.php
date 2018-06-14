@@ -29,4 +29,13 @@ class User extends Authenticatable
     public function student(){
         return $this->hasOne('App\student','account_id','id');
     }
+    public function lecturer(){
+        return $this->hasOne('App\lecturer','account_id','id');
+    }
+    public function partner(){
+        return $this->hasOne('App\partner','account_id','id');
+    }
+    public function administrator(){
+        return $this->hasOne('App\administrator','account_id','id');
+    }
 }

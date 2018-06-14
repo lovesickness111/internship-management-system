@@ -7,7 +7,7 @@
     <meta name="description" content="đăngnhập sinh viên ">
     <meta name="author" content="">
 
-    <title>sinh viên </title>
+    <title>company </title>
     <base href="{{asset('')}}" >
     <!-- Bootstrap Core CSS -->
     <link href="admin_asset/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -29,10 +29,21 @@
             <div class="col-md-5 col-lg-5">
                 <div class="login-panel panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Lecturer login</h3>
+                        <h3 class="panel-title">partner login</h3>
                     </div>
                     <div class="panel-body">
-                        <form role="form" action="" method="POST">
+                        @if(count($errors)>0)
+                    <div class="alert alert-danger">
+                        @foreach($errors->all() as $err)
+                        {{$err}}
+                        @endforeach
+                    </div>
+                          @endif
+                        @if(Session::has('thanhcong'))
+                            <div class="alert alert-success">{{Session::get('thanhcong')}}</div>
+                          @endif</div>
+                        <form action="partner/login" method="POST">
+                            <input type="hidden" name="_token" value="{{csrf_token()}}">
                             <fieldset>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>

@@ -31,8 +31,14 @@
                     <div class="panel-heading">
                         <h3 class="panel-title">Lecturer login</h3>
                     </div>
+                    @if(session('thongbao'))
+                            <div class="alert alert-success">
+                                {{session('thongbao')}}
+                            </div>
+                    @endif
                     <div class="panel-body">
-                        <form role="form" action="" method="POST">
+                        <form  action="lecturer/login" method="POST">
+                            <input type="hidden" name="_token" value="{{csrf_token()}}">
                             <fieldset>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>

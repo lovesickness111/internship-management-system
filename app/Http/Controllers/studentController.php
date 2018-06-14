@@ -10,55 +10,13 @@ use App\User;
 use App\lecturer;
 use Illuminate\Support\Facades\Auth;
 use Hash;
+use App\message;
+use App\report;
 class studentController extends Controller
 {
     function __construct(){
                   
     }   
-    public function getRecruitment(){
-    	$intern_post= intern_post::all();
-    	return view('student.recruitment',['intern_post'=>$intern_post]);
-    }
-    public function getInterview(){
-    	$user= Auth::user();
-        $student = student::find($user->student->id);
-    	return view('student.interview_list',['student'=>$student]);
-    }
-    public function getInfor(){
-    	
-    	return view('student.information');
-    }
-    public function getInfoBySchool(){
-    	
-    	return view('student.infoBySchool');
-    }
-    public function getChangePassword(){
-    	
-    	return view('student.changePassword');
-    }
-    public function getInbox(){
-    	
-    	return view('student.inbox');
-    }
-    public function getWriteMessage(){
-    	
-    	return view('student.writeMessage');
-    }
-
-    public function getFollowPost($id){
-        $intern_post = intern_post::find($id);
-        $user = Auth::user();
-        $follow = new follow();
-        $follow->student_id = $user->student->id;
-        $follow->post_id = $intern_post->id;
-        $follow->save();
-        redirect('student/view-post/'.$id);
-    }
-    public function getViewPost($id){
-        $intern_post= intern_post::find($id);
-        return view('student.viewPost',['intern_post'=>$intern_post]);
-    }
-
     public function getLogin(){
         
         return view('student.login');
@@ -82,36 +40,108 @@ class studentController extends Controller
             return redirect('student/login')->with('thanhcong','đăng nhập không thành công');
         }
     }
-    public function getLogout(){
-        Auth::logout();
-        return redirect('student/recruitment');
-    }
-     public function getSignin(){
-        return view('student/signin');
+    public function getInterview(){
+    	$user= Auth::user();
+        $student = student::find($user->student->id);
+        $follow = follow::where('student_id','=',$student->id)->get();
+    	return view('student.interview_list',compact('student','follow'));
     }
 
-    public function postSignin(Request $req){
-        $this->validate($req,
-            [
-                'email'=>'required|email|unique:users,email',
-                'password'=>'  required|min:6|max:20',
-                'name'=>'required',
-                
-            ],
-            [
-                'email.required'=>'Vui lòng nhập email',
-                'email.email'=>'Không đúng định dạng email',
-                'email.unique'=>'Email đã có người sử dụng',
-                'password.required'=>'Vui lòng nhập mật khẩu',
-                'name.required'=>'Vui lòng nhập tên',
-                
-            ]);
-        $user = new User();
-        $user->name = $req->name;
-        $user->email = $req->email;
-        $user->password = Hash::make($req->password);
-        $user->level = $req->level;
-        $user->save();
-        return redirect('student/login')->with('thanhcong','Tạo tài khoản thành công');
+    public function getInfor(){
+    	$user= Auth::user();
+        $student = student::find($user->student->id);
+    	return view('student.information',compact('student'));
+    }
+
+    public function postInfor(Request $request){
+        $user= Auth::user();
+        $id = student::find($user->student->id);
+        $request->id
+        $request->name 
+        $request->msv
+        .
+    }
+
+    public function getInfoBySchool(){
+    	
+    	return view('student.infoBySchool');
+    }
+    
+
+    public function getFollowPost($id){
+        $intern_post = intern_post::find($id);
+        $user = Auth::user();
+        $follow = new follow();
+        $follow->student_id = $user->student->id;
+        $follow->post_id = $intern_post->id;
+        $follow->partner_name =$intern_post->bpartner->name; 
+        $follow->partner_email =$intern_post->bpartner->email; 
+        $follow->save();
+        redirect('student/view-post/'.$id);
+    }
+    public function getUnFollowPost($id){  
+        $follow = follow::find($id);      
+        $follow->delete();
+        redirect('student/interview-list');
+    }
+    public function getViewPost($id){
+        $intern_post= intern_post::find($id);
+        return view('student.viewPost',['intern_post'=>$intern_post]);
+    }
+    public function getWriteMessage(){
+        
+        return view('student.writeMessage');
+    }
+    public function postWriteMessage(Request $req){
+        $message = new message();
+        $user = Auth::user();
+        $message->email_sender= $user->email;
+        $message->email_receiver = $req->email_receiver;
+        $message->description = $req->description;
+        $message->text_content = $req->text_content;
+        if($req->hasFile('file'))
+        {
+            $file = $req->file("file");
+            $duoi =$file->getClientOriginalExtension();
+            $name= $file->getClientOriginalName();
+            $attach = str_random(4)."-".$name;
+            while(file_exists("upload/".$attach))
+            {
+                $attach = str_random(4)."-".$name;
+            }
+            $file->move("upload/",$attach);
+            $message->file = $attach;
+        }
+        $message->save();
+        return redirect('student/write-message')->with('thanhcong','message sended');
+    }
+    public function getReport(){
+        
+        return view('student.report');
+    }
+    public function postReport(Request $req){
+        $report = new report();
+        $user = Auth::user();
+        $report->student_report= $user->student->id;
+
+        $report->lecturer_report = $user->student->lecturer_id;
+        $report->description = $req->description;
+        
+        if($req->hasFile('file'))
+        {
+            $file = $req->file("file");
+            $duoi =$file->getClientOriginalExtension();
+            $name= $file->getClientOriginalName();
+            $attach = str_random(4)."-".$name;
+            while(file_exists("upload/report/".$attach))
+            {
+                $attach = str_random(4)."-".$name;
+            }
+            $file->move("upload/report/",$attach);
+            $report->file = $attach;
+        }
+        $report->save();
+        return redirect('student/report')->with('thanhcong','report sended');
     }
 }
+   

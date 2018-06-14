@@ -7,7 +7,7 @@
     <meta name="description" content="Khóa Học Lập Trình Laravel Framework 5.x ">
     <meta name="author" content="">
 
-    <title>Sinh viên</title>
+    <title>admin</title>
     <base href="{{asset('')}}" >
     <!-- Bootstrap Core CSS -->
     <link href="admin_asset/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -29,11 +29,16 @@
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
                 <div class="login-panel panel panel-default">
+                    @if(Session::has('thanhcong'))
+                      <div class="alert alert-success">{{Session::get('thanhcong')}}</div'>
+                     @endif
                     <div class="panel-heading">
+
                         <h3 class="panel-title">Please Sign In</h3>
                     </div>
                     <div class="panel-body">
-                        <form role="form" action="" method="POST">
+                        <form role="form" action="admin/login" method="POST">
+                            <input type="hidden" name="_token" value="{{csrf_token()}}">
                             <fieldset>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>

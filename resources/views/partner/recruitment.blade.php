@@ -7,129 +7,40 @@
 <div class="space20"></div>
 
 <div class="row main-left">
-@include('layout.menu')
+@include('layout.menu2')
 
-<div class="col-md-6 ">
-                <div class="panel panel-default">
-                    <div class="panel-heading" style="background-color:#337AB7; color:white;">
-                        <h4><b>Danh sách công ty đối tác của khoa</b></h4>
-                    </div>
 
-                    <div class="row-item row">
-                        <div class="col-md-3">
 
-                            <a href="detail.html">
-                                <br>
-                                <img width="200px" height="200px" class="img-responsive" src="image/320x150.png" alt="">
-                            </a>
-                        </div>
-
-                        <div class="col-md-9">
-                            <h3>Project Five</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, quo, minima, inventore voluptatum saepe quos nostrum provident .</p>
-                            <a class="btn btn-primary" href="detail.html">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
-                        </div>
-                        <div class="break"></div>
-                    </div>
-
-                    <div class="row-item row">
-                        <div class="col-md-3">
-
-                            <a href="detail.html">
-                                <br>
-                                <img width="200px" height="200px" class="img-responsive" src="image/320x150.png" alt="">
-                            </a>
-                        </div>
-
-                        <div class="col-md-9">
-                            <h3>Project Five</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, quo, minima, inventore voluptatum saepe quos nostrum provident .</p>
-                            <a class="btn btn-primary" href="detail.html">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
-                        </div>
-                        <div class="break"></div>
-                    </div>
-
-                    <div class="row-item row">
-                        <div class="col-md-3">
-
-                            <a href="detail.html">
-                                <br>
-                                <img width="200px" height="200px" class="img-responsive" src="image/320x150.png" alt="">
-                            </a>
-                        </div>
-
-                        <div class="col-md-9">
-                            <h3>Project Five</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, quo, minima, inventore voluptatum saepe quos nostrum provident .</p>
-                            <a class="btn btn-primary" href="detail.html">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
-                        </div>
-                        <div class="break"></div>
-                    </div>
-
-                    <!-- Pagination -->
-                    <div class="row text-center">
-                        <div class="col-lg-12">
-                            <ul class="pagination">
-                                <li>
-                                    <a href="#">&laquo;</a>
-                                </li>
-                                <li class="active">
-                                    <a href="#">1</a>
-                                </li>
-                                <li>
-                                    <a href="#">2</a>
-                                </li>
-                                <li>
-                                    <a href="#">3</a>
-                                </li>
-                                <li>
-                                    <a href="#">4</a>
-                                </li>
-                                <li>
-                                    <a href="#">5</a>
-                                </li>
-                                <li>
-                                    <a href="#">&raquo;</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- /.row -->
-
-                </div>
-            
-</div>
-
-<div class="col-md-3">
+<div class="col-md-9">
 	<div class="panel-heading" style="background-color:#337AB7; color:white;">
-                        <h4><b>Đăng ký thực tập ở ngoài</b></h4>
+                        <h4><b>Thêm bài đăng tuyển dụng thực tập sinh</b></h4>
     </div>
-    <i>* Nếu bạn ĐANG đi thực tập tại 1 công ty, hãy tìm kiếm và lựa chọn công ty đó. Nếu không có hãy đăng kí ở form bên cạnh.<br/>
-
-* Việc đăng ký các công ty không thuộc danh sách đối tác của Khoa cần chờ sự xét duyệt của Khoa và có thể sẽ không được chấp nhận.</i>
-<form action="" method="POST" role="form">
+   
+<form action="partner/recruitment" method="POST" role="form">
+    <input type="hidden" name="_token" value="{{csrf_token()}}">
 	<legend>Nhập thông tin</legend>
 
 	<div class="form-group">
-		<label for="">Tên công ty</label>
-		<input type="text" class="form-control" id="" placeholder="Input field">
+		<label for="">Tiêu đề</label>
+		<input type="text" class="form-control" name="description" placeholder="Tiêu đề" required>
 	</div>
 <div class="form-group">
-		<label for="">Đại chỉ</label>
-		<input type="text" class="form-control" id="" placeholder="Input field">
+		<label >link</label>
+		<input type="text" class="form-control" name="link" placeholder="đường dẫn đến trang chủ công ty" required>
 	</div>
 <div class="form-group">
-		<label for="">Email</label>
-		<input type="text" class="form-control" id="" placeholder="Input field">
+		<label for="">Nội dung</label>
+		<textarea class="form-control" name="content" placeholder="thông tin chi tiết" required></textarea>
 	</div>	
-<div class="form-group">
-		<label for="">Số điện thoại</label>
-		<input type="text" class="form-control" id="" placeholder="Input field">
-	</div>
-	<button type="submit" class="btn btn-primary">Submit</button>
+	<button type="submit" class="btn btn-success">Submit</button>
 </form>
+
+        @if(Session::has('thanhcong'))
+          <div class="alert alert-success">{{Session::get('thanhcong')}}</div'>
+         @endif
 </div>		
 <!-- /.row -->
+</div>
 </div>
 <!-- end Page Content -->
 @endsection

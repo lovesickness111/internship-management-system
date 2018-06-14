@@ -25,7 +25,7 @@
                 </ul>
 			    <ul class="nav navbar-nav pull-right">
                         <li>
-                            <a href="student/signin">Đăng ký</a>
+                            <a href="signup">Đăng ký</a>
                         </li>
                         
                     @else 
@@ -36,7 +36,7 @@
                         	</a>
                         </li>
                         <li>
-                        	<a href="student/logout">Đăng xuất</a>
+                        	<a href="logout">Đăng xuất</a>
                         </li>
                     @endif
                 </ul>

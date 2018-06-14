@@ -11,4 +11,7 @@ class lecturer extends Model
     public function student(){
     	return $this->hasMany('App\student','lecturer_id','id');
     }
+    public function User(){
+    	return $this->belongsTo('App\User','account_id','id');
+    }
 }

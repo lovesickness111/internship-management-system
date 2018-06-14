@@ -15,7 +15,9 @@
         </h2>
      </div>
      
-   		<div class="col-sm-3 pull-right"><a href="student/follow/{{$intern_post->id}}"><button class="btn btn-success">follow</button></a>
+   		<div class="col-sm-3 pull-right ">
+
+           <a href="student/follow/{{$intern_post->id}}"><button class="btn btn-success">follow</button></a>
      	     <hr/>
 		  </div>
 <div class="container-fluid">

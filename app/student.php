@@ -18,9 +18,12 @@ class student extends Model
     	return $this->hasMany('App\report','student_report','id');
     }
     public function follow(){
-    	return $this->hasOne('App\follow','student_id','id');
+    	return $this->hasMany('App\follow','student_id','id');
     }
     public function User(){
     	return $this->belongsTo('App\User','account_id','id');
+    }
+    public function partner(){
+        return $this->belongsTo('App\partner','partner_id','id');
     }
 }

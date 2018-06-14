@@ -7,14 +7,14 @@
 <div class="space20"></div>
 
 <div class="row main-left">
-@include('layout.menu1')
+@include('layout.menu3')
 <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
   <div class="panel-heading" style="background-color:#337AB7; color:white;" >
         <h2 style="margin-top:0px; margin-bottom:0px;">
             hộp thư đến     
         </h2>
    </div>
-	<hr/>
+
 	@foreach($inbox as $ib)
     <div class="col-sm-12">
         <div class="bs-calltoaction bs-calltoaction-info">
@@ -31,7 +31,7 @@
                     <a href="#" class="btn btn-lg btn-block btn-info">Details</a>
                 </div>
              </div>
-        </div><hr/>
+        </div>
     </div>
     @endforeach
 

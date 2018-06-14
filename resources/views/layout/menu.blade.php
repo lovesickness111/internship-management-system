@@ -24,7 +24,7 @@
                             <a href="student/info-by-school">Thông tin tại trường</a>
                         </li>
                         <li class="list-group-item">
-                            <a href="student/change-password">Đổi mật khẩu</a>
+                            <a href="change-password">Đổi mật khẩu</a>
                         </li>
                     </ul>
 
@@ -33,12 +33,16 @@
                         Tin nhắn<span class="fa arrow"></span>
                     </li>
                     <ul>
-                        <li class="list-group-item">
+                        <li class="list-group-item ">
                             <a href="student/inbox">Inbox</a>
                         </li>
                         <li class="list-group-item">
                             <a href="student/write-message">Write message</a>
                         </li>
                     </ul>
+                    <a href="student/report"><li class="list-group-item menu1">
+                        báo cáo thực tập cuối kì
+                    </li>
+                    </a>
                 </ul>
-            </div>
+</div>
